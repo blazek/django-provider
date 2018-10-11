@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Copy this file to manage.sh and set environment variables to your QGIS location and additional libraries
+export LD_LIBRARY_PATH=/my/path/to/qgis/lib/
+export PYTHONPATH=/my/path/to/qgis/python/
+export QGIS_PREFIX_PATH=/my/path/to/qgis/
+
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+MANAGE="$SCRIPT_DIR/manage.py"
+echo "Run $MANAGE"
+python3 $MANAGE $@
+# Requires packages (Debian): python3-dbg python3-pyqt5-dbg
+# python3-dbg $MANAGE $@

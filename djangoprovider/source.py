@@ -1,4 +1,4 @@
-from qgis.core import QgsAbstractFeatureSource
+from qgis.core import QgsAbstractFeatureSource, QgsFeatureIterator
 from .iterator import DjangoFeatureIterator
 
 

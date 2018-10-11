@@ -38,6 +38,8 @@ class BaseModel(models.Model):
     class Meta:
         abstract = True
 
+    def __unicode__(self):
+        return u'%s.%s.%s' % (self._meta.app_label, self._meta.model_name, self.pk)
 
 class Point(BaseModel):
     geo_field = models.PointField(blank=True, null=True, srid=SRID)

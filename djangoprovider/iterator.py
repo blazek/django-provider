@@ -10,6 +10,7 @@ from qgis.core import (
 from django.db.models import Q
 from django.contrib.gis.geos import Polygon
 
+
 class DjangoFeatureIterator(QgsAbstractFeatureIterator):
 
     def __init__(self, source, request):
@@ -17,8 +18,9 @@ class DjangoFeatureIterator(QgsAbstractFeatureIterator):
         self._request = request if request is not None else QgsFeatureRequest()
         self._source = source
         self._transform = QgsCoordinateTransform()
-        if self._request.destinationCrs().isValid() and self._request.destinationCrs() != self._source._crs:
-            self._transform = QgsCoordinateTransform(self._source._crs, self._request.destinationCrs(), self._request.transformContext())
+        if self._request.destinationCrs().isValid() and self._request.destinationCrs() != self._source.crs:
+            self._transform = QgsCoordinateTransform(self._source.crs, self._request.destinationCrs(),
+                                                     self._request.transformContext())
         try:
             rect = self.filterRectToSourceCrs(self._transform)
             self._filter_geo = None
@@ -28,7 +30,7 @@ class DjangoFeatureIterator(QgsAbstractFeatureIterator):
             self.close()
             return
 
-        self._queryset = self._source.model.get_queryset()
+        self._queryset = self._source.model.objects.get_queryset().order_by(self._source.model._meta.pk.name)
         if self._filter_geo and self._source.dj_geo_field:
             if self._request.flags() & QgsFeatureRequest.ExactIntersect:
                 # TODO
@@ -42,7 +44,8 @@ class DjangoFeatureIterator(QgsAbstractFeatureIterator):
         elif self._request.filterType() == QgsFeatureRequest.FilterFids:
             self._queryset = self._queryset.filter(Q(self._source.model._meta.pk.name, self._request.filterFid()))
         elif self._request.filterType() == QgsFeatureRequest.FilterFid:
-            self._queryset = self._queryset.filter(Q('%s__in' % self._source.model._meta.pk.name, self._request.filterFids()))
+            self._queryset = self._queryset.filter(
+                Q('%s__in' % self._source.model._meta.pk.name, self._request.filterFids()))
 
         self._iterator = self._queryset.iterator()
 
@@ -50,11 +53,12 @@ class DjangoFeatureIterator(QgsAbstractFeatureIterator):
 
     def fetchFeature(self, feature):
         try:
-            obj = self._iterator.next()
+            obj = next(self._iterator)
             feature.setId(obj.pk)  # Only integers supported
             if self._source.dj_geo_field:
                 dj_geo = getattr(obj, self._source.dj_geo_field.name)
-                qgs_geo = QgsGeometry.fromWkb(dj_geo.wkb)
+                qgs_geo = QgsGeometry()
+                qgs_geo.fromWkb(dj_geo.wkb.tobytes())
                 feature.setGeometry(qgs_geo)
                 self.geometryToDestinationCrs(feature, self._transform)
             else:

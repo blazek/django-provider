@@ -1,7 +1,20 @@
+# script to run manage.py with custom PYTHONPATH and LD_LIBRARY_PATH
+test/project/manage.sh
+
+# vim
 *.*~
 *~
 .*.swp
+
+# core dump
 core
+
+# PyCharm
+.idea/workspace.xml
+.idea/django-provider.iml
+.idea/misc.xml
+.idea/tasks.xml
+.idea/find.xml
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -107,9 +120,3 @@ venv.bak/
 
 # mypy
 .mypy_cache/
-
-# PyCharm
-.idea/workspace.xml
-.idea/django-provider.iml
-.idea/misc.xml
-

@@ -6,14 +6,17 @@ __author__ = 'Radim Blazek'
 __date__ = '2018-10-10'
 __copyright__ = 'Copyright 2018, Radim Blazek'
 
-from qgis.PyQt.QtCore import QVariant, QUrl
+from qgis.PyQt.QtCore import QVariant, QUrl, QUrlQuery
 from qgis.core import (
     QgsField,
     QgsFields,
     QgsFeatureRequest,
     QgsWkbTypes,
     QgsCoordinateReferenceSystem,
+    QgsDataProvider,
     QgsVectorDataProvider,
+    QgsRectangle,
+    QgsFeatureIterator
 )
 
 from django.apps import apps
@@ -50,6 +53,7 @@ class DjangoProvider(QgsVectorDataProvider):
         :param providerOptions:
         """
         super().__init__(uri)
+        self._is_valid = False
         self.setNativeTypes((
             # TODO
             QgsVectorDataProvider.NativeType('Integer', 'integer', QVariant.Int, -1, -1, 0, 0),
@@ -57,10 +61,12 @@ class DjangoProvider(QgsVectorDataProvider):
         ))
         self._uri = uri
         url = QUrl(uri)
+        url_query = QUrlQuery(url)
         self._full_model_name = url.path()
         self._app_label, self._model_name = self._full_model_name.split('.')
         self._model = apps.get_model(self._app_label, self._model_name)  # Django model
         self._meta = self._model._meta
+
         self._fields = QgsFields()
         self._dj_fields = []  # Django fields represented by provider in the same order as QgsFields
         for field in self._meta.get_fields():
@@ -75,7 +81,7 @@ class DjangoProvider(QgsVectorDataProvider):
                 self._fields.append(f)
                 self._dj_fields.append(field)
 
-        self._geo_field_name = url.queryItemValue('geofield')
+        self._geo_field_name = url_query.queryItemValue('geofield')
         self._geo_field = None  # Django geometry field
         if self._geo_field_name:
             self._meta.get_field(self._geo_field_name)
@@ -86,7 +92,6 @@ class DjangoProvider(QgsVectorDataProvider):
                     self._geo_field = field
                     self._geo_field_name = field.name
                     break
-
 
         self._wkbType = QgsWkbTypes.NoGeometry
         if self._geo_field:
@@ -100,6 +105,7 @@ class DjangoProvider(QgsVectorDataProvider):
         if self._geo_field:
             self._crs = QgsCoordinateReferenceSystem.fromEpsgId(self._geo_field.srid)
         self._provider_options = providerOptions
+        self._is_valid = True
 
     def featureSource(self):
         return DjangoFeatureSource(self._model, self._fields, self._dj_fields, self._geo_field, self._crs )
@@ -118,7 +124,7 @@ class DjangoProvider(QgsVectorDataProvider):
             return set()
 
         dj_field = self._dj_fields[fieldIndex]
-        values = self._model.get_queryset().order_by(dj_field.name).values_list(dj_field.name, flat=True).distinct()
+        values = self._model.objects.get_queryset().order_by(dj_field.name).values_list(dj_field.name, flat=True).distinct()
         if limit >= 0:
             values = values[:limit]
         return set(values)
@@ -127,7 +133,7 @@ class DjangoProvider(QgsVectorDataProvider):
         return self._wkbType
 
     def featureCount(self):
-        return self._model.get_queryset().count()
+        return self._model.objects.get_queryset().count()
 
     def fields(self):
         return self._fields
@@ -164,7 +170,7 @@ class DjangoProvider(QgsVectorDataProvider):
         return True
 
     def allFeatureIds(self):
-        return list(self._model.get_queryset().values_list(self._meta.pk.name, flat=True))
+        return list(self._model.objects.get_queryset().values_list(self._meta.pk.name, flat=True))
 
     def subsetString(self):
         return None
@@ -190,7 +196,7 @@ class DjangoProvider(QgsVectorDataProvider):
 
     def extent(self):
         if self._extent.isEmpty() and self._geo_field:
-            box = self._model.get_queryset().aggregate(models.Extent(self._geo_field_name)).values()[0]
+            box = self._model.objects.get_queryset().aggregate(models.Extent(self._geo_field_name)).values()[0]
             self._extent = QgsRectangle(box[0], box[0], box[0], box[0])
 
         return QgsRectangle(self._extent)
@@ -199,7 +205,7 @@ class DjangoProvider(QgsVectorDataProvider):
         self._extent.setMinimal()
 
     def isValid(self):
-        return True
+        return self._is_valid
 
     def crs(self):
         return self._crs
