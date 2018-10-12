@@ -13,7 +13,8 @@ from qgis.core import (
 
 # QgsApplication() must be created before TestCase.setUp(), otherwise when layer is created,
 # it ends with strange segfault in QGuiApplication::font()
-QgsApplication.setPrefixPath(os.environ['QGIS_PREFIX_PATH'], True)
+# QGIS_PREFIX_PATH environment variable is read by QgsApplication
+# QgsApplication.setPrefixPath(os.environ['QGIS_PREFIX_PATH'], True)
 qgs = QgsApplication([], False)
 qgs.initQgis()
 
