@@ -68,19 +68,15 @@ class DjangoProvider(QgsVectorDataProvider):
         self._model = apps.get_model(self._app_label, self._model_name)  # Django model
         self._meta = self._model._meta
 
-        self._fields = QgsFields()
-        self._dj_fields = []  # Django fields represented by provider in the same order as QgsFields
-        for field in self._meta.get_fields():
+        self._qgis_fields = QgsFields()
+        self._django_fields = []  # Django fields represented by provider in the same order as QgsFields
+        for django_field in self._meta.get_fields():
             # TODO: more field types
-            f = None
-            if isinstance(field, models.IntegerField):
-                f = QgsField(field.name, QVariant.Int, 'integer', 0, 0, field.verbose_name)
-            elif isinstance(field, models.CharField):
-                f = QgsField(field.name, QVariant.String, 'varchar', field.max_length, 0, field.verbose_name)
+            qgis_field = self._get_qgis_field_from_django_field(django_field)
 
-            if f:
-                self._fields.append(f)
-                self._dj_fields.append(field)
+            if qgis_field:
+                self._qgis_fields.append(qgis_field)
+                self._django_fields.append(django_field)
 
         self._geo_field_name = url_query.queryItemValue('geofield')
         self._geo_field = None  # Django geometry field
@@ -109,7 +105,7 @@ class DjangoProvider(QgsVectorDataProvider):
         self._is_valid = True
 
     def featureSource(self):
-        return DjangoFeatureSource(self._model, self._fields, self._dj_fields, self._geo_field, self._crs )
+        return DjangoFeatureSource(self._model, self._qgis_fields, self._django_fields, self._geo_field, self._crs)
 
     def dataSourceUri(self, expandAuthConfig=True):
         return self._uri
@@ -124,7 +120,7 @@ class DjangoProvider(QgsVectorDataProvider):
         if fieldIndex < 0 or fieldIndex >= self.fields().count():
             return set()
 
-        dj_field = self._dj_fields[fieldIndex]
+        dj_field = self._django_fields[fieldIndex]
         values = self._model.objects.get_queryset().order_by(dj_field.name).values_list(dj_field.name, flat=True).distinct()
         if limit >= 0:
             values = values[:limit]
@@ -137,7 +133,7 @@ class DjangoProvider(QgsVectorDataProvider):
         return self._model.objects.get_queryset().count()
 
     def fields(self):
-        return self._fields
+        return self._qgis_fields
 
     def addFeatures(self, features, flags=None):
         # TODO
@@ -216,4 +212,42 @@ class DjangoProvider(QgsVectorDataProvider):
     # -------------------------------- Private methods --------------------------------
 
     def _get_django_field(self, field_index):
-        return self._dj_fields[field_index]
+        return self._django_fields[field_index]
+
+    @staticmethod
+    def _get_qgis_field_from_django_field(django_field):
+        # IS it OK to take class name?
+        name = django_field.name
+        type_name = type(django_field).__name__.replace('Field', '').lower()
+        comment = django_field.verbose_name
+        # boolean
+        if isinstance(django_field, models.BooleanField):
+            return QgsField(name, QVariant.Bool, type_name, -1, -1, comment)
+        elif isinstance(django_field, models.NullBooleanField):
+            return QgsField(name, QVariant.Bool, type_name, -1, -1, comment)
+        # integer
+        elif isinstance(django_field, models.SmallIntegerField):
+            return QgsField(name, QVariant.Int, type_name, -1, 0, comment)
+        elif isinstance(django_field, models.IntegerField):
+            return QgsField(name, QVariant.Int, type_name, -1, 0, comment)
+        elif isinstance(django_field, models.BigIntegerField):
+            return QgsField(name, QVariant.LongLong, type_name, -1, 0, comment)
+        # float
+        elif isinstance(django_field, models.FloatField):
+            return QgsField(name, QVariant.Double, type_name, -1, -1, comment)
+        elif isinstance(django_field, models.DecimalField):
+            return QgsField(name, QVariant.Double, type_name, django_field.max_digits, django_field.decimal_places, comment)
+        # char
+        elif isinstance(django_field, models.CharField):
+            return QgsField(name, QVariant.String, type_name, django_field.max_length, -1, comment)
+        elif isinstance(django_field, models.TextField):
+            return QgsField(name, QVariant.String, type_name, -1, -1, comment)
+        # datetime
+        elif isinstance(django_field, models.DateField):
+            return QgsField(name, QVariant.Date, type_name, -1, -1, comment)
+        elif isinstance(django_field, models.TimeField):
+            return QgsField(name, QVariant.Time, type_name, -1, -1, comment)
+        elif isinstance(django_field, models.DateTimeField):
+            return QgsField(name, QVariant.DateTime, type_name, -1, -1, comment)
+
+        return None

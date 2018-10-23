@@ -26,6 +26,7 @@ from .generate import generate_data
 sys.path.append(os.path.join(os.path.dirname(__file__), '../../../'))
 from djangoprovider.provider import DjangoProvider
 
+
 class ReadTestCase(TestCase):
 
     def setUp(self):
