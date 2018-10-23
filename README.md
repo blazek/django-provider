@@ -24,13 +24,13 @@ This is currently proof of concept / work in progress!
   
 ## Example in QGIS Python console
 Django provider and Django project must be in PYTHONPATH
-```pythonregexp
+```python
 import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "project.settings")
 import django
-from djangoprovider import DjangoProvider, register_django_provider
+from djangoprovider import register_django_provider
 
-#register_django_provider()
+register_django_provider()
 django.setup(set_prefix=False)
 layer = QgsVectorLayer('basic.point', 'test', 'django')
 QgsProject.instance().addMapLayer(layer)
@@ -44,6 +44,7 @@ from qgis.core import QgsApplication
 from qgis.server import QgsServer, QgsBufferServerRequest, QgsBufferServerResponse
 from django.http import HttpResponse
 from djangoprovider import register_django_provider
+# TODO: how to manage QgsApplication?
 qgs = QgsApplication([], False)
 qgs.initQgis()
 
