@@ -49,7 +49,7 @@ class ReadTestCase(TestCase):
         object_iterator = model.objects.all().iterator()
 
         print('create django provider')
-        provider = QgsProviderRegistry.instance().createProvider('djangoprovider', uri, QgsDataProvider.ProviderOptions())
+        provider = QgsProviderRegistry.instance().createProvider('django', uri, QgsDataProvider.ProviderOptions())
         self.assertTrue(provider.isValid())
         print('provider valid: %s' % provider.isValid())
         print('provider feature count: %s' % (provider.featureCount()))
@@ -72,7 +72,7 @@ class ReadTestCase(TestCase):
                 self.assertTrue(feature.geometry().equals(qgs_geo), '%s geometry does not match, expected %s, found %s' % (obj_error_prefix, obj.geo_field.wkt, feature.geometry().asWkt()))
 
         print('create django layer')
-        layer = QgsVectorLayer(uri, 'test', 'djangoprovider')
+        layer = QgsVectorLayer(uri, 'test', 'django')
         print('layer valid: %s' % layer.isValid())
         self.assertTrue(layer.isValid())
 

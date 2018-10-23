@@ -35,7 +35,7 @@ if __name__ == '__main__':
 
     model = Point
     uri = '%s.%s' % (model._meta.app_label, model._meta.model_name)
-    layer = QgsVectorLayer(uri, 'test', 'djangoprovider')
+    layer = QgsVectorLayer(uri, 'test', 'django')
     print('layer valid: %s' % layer.isValid())
     print('feature count: %s' % layer.featureCount())
     print('crs authid: %s' % layer.crs().authid())

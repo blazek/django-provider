@@ -1,0 +1,567 @@
+<!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
+<qgis projectname="" version="3.3.0-Master">
+  <homePath path=""/>
+  <title></title>
+  <autotransaction active="0"/>
+  <evaluateDefaultValues active="0"/>
+  <trust active="0"/>
+  <projectCrs>
+    <spatialrefsys>
+      <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs</proj4>
+      <srsid>3857</srsid>
+      <srid>3857</srid>
+      <authid>EPSG:3857</authid>
+      <description>WGS 84 / Pseudo Mercator</description>
+      <projectionacronym>merc</projectionacronym>
+      <ellipsoidacronym>WGS84</ellipsoidacronym>
+      <geographicflag>false</geographicflag>
+    </spatialrefsys>
+  </projectCrs>
+  <layer-tree-group>
+    <customproperties/>
+    <layer-tree-layer providerKey="djangoprovider" checked="Qt::Checked" id="point_edc31b89_b02f_40bb_9ba9_830a8aa345ab" source="basic.point" name="point" expanded="1">
+      <customproperties/>
+    </layer-tree-layer>
+    <custom-order enabled="0">
+      <item>point_edc31b89_b02f_40bb_9ba9_830a8aa345ab</item>
+    </custom-order>
+  </layer-tree-group>
+  <snapping-settings tolerance="12" intersection-snapping="0" unit="2" type="1" enabled="0" mode="2">
+    <individual-layer-settings>
+      <layer-setting tolerance="12" id="point_edc31b89_b02f_40bb_9ba9_830a8aa345ab" type="1" enabled="0" units="2"/>
+    </individual-layer-settings>
+  </snapping-settings>
+  <relations/>
+  <mapcanvas name="theMapCanvas" annotationsVisible="1">
+    <units>meters</units>
+    <extent>
+      <xmin>-21039383.75699999928474426</xmin>
+      <ymin>-21039383.75699999928474426</ymin>
+      <xmax>21039383.75699999928474426</xmax>
+      <ymax>21039383.75699999928474426</ymax>
+    </extent>
+    <rotation>0</rotation>
+    <destinationsrs>
+      <spatialrefsys>
+        <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs</proj4>
+        <srsid>3857</srsid>
+        <srid>3857</srid>
+        <authid>EPSG:3857</authid>
+        <description>WGS 84 / Pseudo Mercator</description>
+        <projectionacronym>merc</projectionacronym>
+        <ellipsoidacronym>WGS84</ellipsoidacronym>
+        <geographicflag>false</geographicflag>
+      </spatialrefsys>
+    </destinationsrs>
+    <rendermaptile>0</rendermaptile>
+  </mapcanvas>
+  <legend updateDrawingOrder="true">
+    <legendlayer showFeatureCount="0" checked="Qt::Checked" drawingOrder="-1" open="true" name="point">
+      <filegroup open="true" hidden="false">
+        <legendlayerfile visible="1" layerid="point_edc31b89_b02f_40bb_9ba9_830a8aa345ab" isInOverview="0"/>
+      </filegroup>
+    </legendlayer>
+  </legend>
+  <mapViewDocks/>
+  <projectlayers>
+    <maplayer simplifyDrawingHints="0" autoRefreshEnabled="0" styleCategories="AllStyleCategories" minScale="1e+8" simplifyMaxScale="1" maxScale="0" simplifyAlgorithm="0" simplifyLocal="1" readOnly="0" refreshOnNotifyEnabled="0" geometry="Point" labelsEnabled="0" simplifyDrawingTol="1" refreshOnNotifyMessage="" hasScaleBasedVisibilityFlag="0" type="vector" autoRefreshTime="0">
+      <extent>
+        <xmin>-20037508.33999999985098839</xmin>
+        <ymin>-20037508.33999999985098839</ymin>
+        <xmax>20037508.33999999985098839</xmax>
+        <ymax>20037508.33999999985098839</ymax>
+      </extent>
+      <id>point_edc31b89_b02f_40bb_9ba9_830a8aa345ab</id>
+      <datasource>basic.point</datasource>
+      <shortname>point</shortname>
+      <title>point</title>
+      <keywordList>
+        <value></value>
+      </keywordList>
+      <layername>point</layername>
+      <srs>
+        <spatialrefsys>
+          <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs</proj4>
+          <srsid>3857</srsid>
+          <srid>3857</srid>
+          <authid>EPSG:3857</authid>
+          <description>WGS 84 / Pseudo Mercator</description>
+          <projectionacronym>merc</projectionacronym>
+          <ellipsoidacronym>WGS84</ellipsoidacronym>
+          <geographicflag>false</geographicflag>
+        </spatialrefsys>
+      </srs>
+      <resourceMetadata>
+        <identifier></identifier>
+        <parentidentifier></parentidentifier>
+        <language></language>
+        <type></type>
+        <title></title>
+        <abstract></abstract>
+        <contact>
+          <name></name>
+          <organization></organization>
+          <position></position>
+          <voice></voice>
+          <fax></fax>
+          <email></email>
+          <role></role>
+        </contact>
+        <links/>
+        <fees></fees>
+        <encoding></encoding>
+        <crs>
+          <spatialrefsys>
+            <proj4></proj4>
+            <srsid>0</srsid>
+            <srid>0</srid>
+            <authid></authid>
+            <description></description>
+            <projectionacronym></projectionacronym>
+            <ellipsoidacronym></ellipsoidacronym>
+            <geographicflag>false</geographicflag>
+          </spatialrefsys>
+        </crs>
+        <extent>
+          <spatial crs="" minz="0" minx="0" maxz="0" miny="0" maxx="0" dimensions="2" maxy="0"/>
+          <temporal>
+            <period>
+              <start></start>
+              <end></end>
+            </period>
+          </temporal>
+        </extent>
+      </resourceMetadata>
+      <provider encoding="UTF-8">djangoprovider</provider>
+      <vectorjoins/>
+      <layerDependencies/>
+      <dataDependencies/>
+      <legend type="default-vector"/>
+      <expressionfields/>
+      <map-layer-style-manager current="default">
+        <map-layer-style name="default"/>
+      </map-layer-style-manager>
+      <auxiliaryLayer/>
+      <flags>
+        <Identifiable>1</Identifiable>
+        <Removable>1</Removable>
+        <Searchable>1</Searchable>
+      </flags>
+      <renderer-v2 symbollevels="0" type="singleSymbol" enableorderby="0" forceraster="0">
+        <symbols>
+          <symbol alpha="1" clip_to_extent="1" name="0" type="marker">
+            <layer pass="0" locked="0" class="SimpleMarker" enabled="1">
+              <prop v="0" k="angle"/>
+              <prop v="231,113,72,255" k="color"/>
+              <prop v="1" k="horizontal_anchor_point"/>
+              <prop v="bevel" k="joinstyle"/>
+              <prop v="circle" k="name"/>
+              <prop v="0,0" k="offset"/>
+              <prop v="3x:0,0,0,0,0,0" k="offset_map_unit_scale"/>
+              <prop v="MM" k="offset_unit"/>
+              <prop v="35,35,35,255" k="outline_color"/>
+              <prop v="solid" k="outline_style"/>
+              <prop v="0" k="outline_width"/>
+              <prop v="3x:0,0,0,0,0,0" k="outline_width_map_unit_scale"/>
+              <prop v="MM" k="outline_width_unit"/>
+              <prop v="diameter" k="scale_method"/>
+              <prop v="2" k="size"/>
+              <prop v="3x:0,0,0,0,0,0" k="size_map_unit_scale"/>
+              <prop v="MM" k="size_unit"/>
+              <prop v="1" k="vertical_anchor_point"/>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option value="" name="name" type="QString"/>
+                  <Option name="properties"/>
+                  <Option value="collection" name="type" type="QString"/>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </symbols>
+        <rotation/>
+        <sizescale/>
+      </renderer-v2>
+      <customproperties>
+        <property key="embeddedWidgets/count" value="0"/>
+        <property key="variableNames"/>
+        <property key="variableValues"/>
+      </customproperties>
+      <blendMode>0</blendMode>
+      <featureBlendMode>0</featureBlendMode>
+      <layerOpacity>1</layerOpacity>
+      <SingleCategoryDiagramRenderer diagramType="Histogram" attributeLegend="1">
+        <DiagramCategory opacity="1" penWidth="0" scaleBasedVisibility="0" enabled="0" width="15" rotationOffset="270" penAlpha="255" labelPlacementMethod="XHeight" scaleDependency="Area" diagramOrientation="Up" maxScaleDenominator="1e+8" sizeScale="3x:0,0,0,0,0,0" penColor="#000000" lineSizeType="MM" minScaleDenominator="0" lineSizeScale="3x:0,0,0,0,0,0" barWidth="5" backgroundAlpha="255" minimumSize="0" sizeType="MM" backgroundColor="#ffffff" height="15">
+          <fontProperties style="" description="Noto Sans,10,-1,0,50,0,0,0,0,0"/>
+        </DiagramCategory>
+      </SingleCategoryDiagramRenderer>
+      <DiagramLayerSettings placement="0" zIndex="0" obstacle="0" dist="0" priority="0" showAll="1" linePlacementFlags="18">
+        <properties>
+          <Option type="Map">
+            <Option value="" name="name" type="QString"/>
+            <Option name="properties"/>
+            <Option value="collection" name="type" type="QString"/>
+          </Option>
+        </properties>
+      </DiagramLayerSettings>
+      <geometryOptions removeDuplicateNodes="0" geometryPrecision="0"/>
+      <fieldConfiguration>
+        <field name="boolean_field">
+          <editWidget type="CheckBox">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="null_boolean_field">
+          <editWidget type="CheckBox">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="small_integer_field">
+          <editWidget type="Range">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="integer_field">
+          <editWidget type="Range">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="float_field">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="decimal_field">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="char_field">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="choice_field">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="text_field">
+          <editWidget type="TextEdit">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="date_field">
+          <editWidget type="DateTime">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="time_field">
+          <editWidget type="DateTime">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="date_time_field">
+          <editWidget type="DateTime">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+      </fieldConfiguration>
+      <aliases>
+        <alias index="0" name="" field="boolean_field"/>
+        <alias index="1" name="" field="null_boolean_field"/>
+        <alias index="2" name="" field="small_integer_field"/>
+        <alias index="3" name="" field="integer_field"/>
+        <alias index="4" name="" field="float_field"/>
+        <alias index="5" name="" field="decimal_field"/>
+        <alias index="6" name="" field="char_field"/>
+        <alias index="7" name="" field="choice_field"/>
+        <alias index="8" name="" field="text_field"/>
+        <alias index="9" name="" field="date_field"/>
+        <alias index="10" name="" field="time_field"/>
+        <alias index="11" name="" field="date_time_field"/>
+      </aliases>
+      <excludeAttributesWMS/>
+      <excludeAttributesWFS/>
+      <defaults>
+        <default expression="" applyOnUpdate="0" field="boolean_field"/>
+        <default expression="" applyOnUpdate="0" field="null_boolean_field"/>
+        <default expression="" applyOnUpdate="0" field="small_integer_field"/>
+        <default expression="" applyOnUpdate="0" field="integer_field"/>
+        <default expression="" applyOnUpdate="0" field="float_field"/>
+        <default expression="" applyOnUpdate="0" field="decimal_field"/>
+        <default expression="" applyOnUpdate="0" field="char_field"/>
+        <default expression="" applyOnUpdate="0" field="choice_field"/>
+        <default expression="" applyOnUpdate="0" field="text_field"/>
+        <default expression="" applyOnUpdate="0" field="date_field"/>
+        <default expression="" applyOnUpdate="0" field="time_field"/>
+        <default expression="" applyOnUpdate="0" field="date_time_field"/>
+      </defaults>
+      <constraints>
+        <constraint exp_strength="0" constraints="0" field="boolean_field" unique_strength="0" notnull_strength="0"/>
+        <constraint exp_strength="0" constraints="0" field="null_boolean_field" unique_strength="0" notnull_strength="0"/>
+        <constraint exp_strength="0" constraints="0" field="small_integer_field" unique_strength="0" notnull_strength="0"/>
+        <constraint exp_strength="0" constraints="0" field="integer_field" unique_strength="0" notnull_strength="0"/>
+        <constraint exp_strength="0" constraints="0" field="float_field" unique_strength="0" notnull_strength="0"/>
+        <constraint exp_strength="0" constraints="0" field="decimal_field" unique_strength="0" notnull_strength="0"/>
+        <constraint exp_strength="0" constraints="0" field="char_field" unique_strength="0" notnull_strength="0"/>
+        <constraint exp_strength="0" constraints="0" field="choice_field" unique_strength="0" notnull_strength="0"/>
+        <constraint exp_strength="0" constraints="0" field="text_field" unique_strength="0" notnull_strength="0"/>
+        <constraint exp_strength="0" constraints="0" field="date_field" unique_strength="0" notnull_strength="0"/>
+        <constraint exp_strength="0" constraints="0" field="time_field" unique_strength="0" notnull_strength="0"/>
+        <constraint exp_strength="0" constraints="0" field="date_time_field" unique_strength="0" notnull_strength="0"/>
+      </constraints>
+      <constraintExpressions>
+        <constraint exp="" field="boolean_field" desc=""/>
+        <constraint exp="" field="null_boolean_field" desc=""/>
+        <constraint exp="" field="small_integer_field" desc=""/>
+        <constraint exp="" field="integer_field" desc=""/>
+        <constraint exp="" field="float_field" desc=""/>
+        <constraint exp="" field="decimal_field" desc=""/>
+        <constraint exp="" field="char_field" desc=""/>
+        <constraint exp="" field="choice_field" desc=""/>
+        <constraint exp="" field="text_field" desc=""/>
+        <constraint exp="" field="date_field" desc=""/>
+        <constraint exp="" field="time_field" desc=""/>
+        <constraint exp="" field="date_time_field" desc=""/>
+      </constraintExpressions>
+      <expressionfields/>
+      <attributeactions>
+        <defaultAction key="Canvas" value="{00000000-0000-0000-0000-000000000000}"/>
+      </attributeactions>
+      <attributetableconfig sortExpression="" actionWidgetStyle="dropDown" sortOrder="0">
+        <columns>
+          <column hidden="0" name="boolean_field" type="field" width="-1"/>
+          <column hidden="0" name="null_boolean_field" type="field" width="-1"/>
+          <column hidden="0" name="small_integer_field" type="field" width="-1"/>
+          <column hidden="0" name="integer_field" type="field" width="-1"/>
+          <column hidden="0" name="float_field" type="field" width="-1"/>
+          <column hidden="0" name="decimal_field" type="field" width="-1"/>
+          <column hidden="0" name="char_field" type="field" width="-1"/>
+          <column hidden="0" name="choice_field" type="field" width="-1"/>
+          <column hidden="0" name="text_field" type="field" width="-1"/>
+          <column hidden="0" name="date_field" type="field" width="-1"/>
+          <column hidden="0" name="time_field" type="field" width="-1"/>
+          <column hidden="0" name="date_time_field" type="field" width="-1"/>
+          <column hidden="1" type="actions" width="-1"/>
+        </columns>
+      </attributetableconfig>
+      <conditionalstyles>
+        <rowstyles/>
+        <fieldstyles/>
+      </conditionalstyles>
+      <editform tolerant="1"></editform>
+      <editforminit/>
+      <editforminitcodesource>0</editforminitcodesource>
+      <editforminitfilepath></editforminitfilepath>
+      <editforminitcode><![CDATA[# -*- coding: utf-8 -*-
+"""
+QGIS forms can have a Python function that is called when the form is
+opened.
+
+Use this function to add extra logic to your forms.
+
+Enter the name of the function in the "Python Init function"
+field.
+An example follows:
+"""
+from qgis.PyQt.QtWidgets import QWidget
+
+def my_form_open(dialog, layer, feature):
+	geom = feature.geometry()
+	control = dialog.findChild(QWidget, "MyLineEdit")
+]]></editforminitcode>
+      <featformsuppress>0</featformsuppress>
+      <editorlayout>generatedlayout</editorlayout>
+      <editable>
+        <field name="boolean_field" editable="1"/>
+        <field name="char_field" editable="1"/>
+        <field name="choice_field" editable="1"/>
+        <field name="date_field" editable="1"/>
+        <field name="date_time_field" editable="1"/>
+        <field name="decimal_field" editable="1"/>
+        <field name="float_field" editable="1"/>
+        <field name="integer_field" editable="1"/>
+        <field name="null_boolean_field" editable="1"/>
+        <field name="small_integer_field" editable="1"/>
+        <field name="text_field" editable="1"/>
+        <field name="time_field" editable="1"/>
+      </editable>
+      <labelOnTop>
+        <field labelOnTop="0" name="boolean_field"/>
+        <field labelOnTop="0" name="char_field"/>
+        <field labelOnTop="0" name="choice_field"/>
+        <field labelOnTop="0" name="date_field"/>
+        <field labelOnTop="0" name="date_time_field"/>
+        <field labelOnTop="0" name="decimal_field"/>
+        <field labelOnTop="0" name="float_field"/>
+        <field labelOnTop="0" name="integer_field"/>
+        <field labelOnTop="0" name="null_boolean_field"/>
+        <field labelOnTop="0" name="small_integer_field"/>
+        <field labelOnTop="0" name="text_field"/>
+        <field labelOnTop="0" name="time_field"/>
+      </labelOnTop>
+      <widgets/>
+      <previewExpression>boolean_field</previewExpression>
+      <mapTip></mapTip>
+    </maplayer>
+  </projectlayers>
+  <layerorder>
+    <layer id="point_edc31b89_b02f_40bb_9ba9_830a8aa345ab"/>
+  </layerorder>
+  <properties>
+    <SpatialRefSys>
+      <ProjectionsEnabled type="int">1</ProjectionsEnabled>
+    </SpatialRefSys>
+    <Measurement>
+      <DistanceUnits type="QString">meters</DistanceUnits>
+      <AreaUnits type="QString">m2</AreaUnits>
+    </Measurement>
+    <WFSLayersPrecision>
+      <test_e211c766_9894_4fc6_a99d_92b12911e362 type="int">8</test_e211c766_9894_4fc6_a99d_92b12911e362>
+      <point_edc31b89_b02f_40bb_9ba9_830a8aa345ab type="int">8</point_edc31b89_b02f_40bb_9ba9_830a8aa345ab>
+    </WFSLayersPrecision>
+    <Macros>
+      <pythonCode type="QString"></pythonCode>
+    </Macros>
+    <WMSUseLayerIDs type="bool">false</WMSUseLayerIDs>
+    <Paths>
+      <Absolute type="bool">false</Absolute>
+    </Paths>
+    <DefaultStyles>
+      <RandomColors type="bool">true</RandomColors>
+      <Marker type="QString"></Marker>
+      <ColorRamp type="QString"></ColorRamp>
+      <Opacity type="double">1</Opacity>
+      <Fill type="QString"></Fill>
+      <Line type="QString"></Line>
+    </DefaultStyles>
+    <WMSRequestDefinedDataSources type="bool">false</WMSRequestDefinedDataSources>
+    <WMSAddWktGeometry type="bool">false</WMSAddWktGeometry>
+    <WMSKeywordList type="QStringList">
+      <value></value>
+    </WMSKeywordList>
+    <WMSImageQuality type="int">90</WMSImageQuality>
+    <WMSServiceAbstract type="QString"></WMSServiceAbstract>
+    <WMTSJpegLayers>
+      <Project type="bool">false</Project>
+      <Group type="QStringList"/>
+      <Layer type="QStringList"/>
+    </WMTSJpegLayers>
+    <PositionPrecision>
+      <Automatic type="bool">true</Automatic>
+      <DecimalPlaces type="int">2</DecimalPlaces>
+      <DegreeFormat type="QString">MU</DegreeFormat>
+    </PositionPrecision>
+    <WMSUrl type="QString"></WMSUrl>
+    <WMSAccessConstraints type="QString">None</WMSAccessConstraints>
+    <WCSUrl type="QString"></WCSUrl>
+    <WMTSPngLayers>
+      <Project type="bool">false</Project>
+      <Group type="QStringList"/>
+      <Layer type="QStringList"/>
+    </WMTSPngLayers>
+    <WFSLayers type="QStringList">
+      <value>point_edc31b89_b02f_40bb_9ba9_830a8aa345ab</value>
+    </WFSLayers>
+    <WMSContactPosition type="QString"></WMSContactPosition>
+    <WFSTLayers>
+      <Insert type="QStringList"/>
+      <Update type="QStringList"/>
+      <Delete type="QStringList"/>
+    </WFSTLayers>
+    <WMTSLayers>
+      <Project type="bool">false</Project>
+      <Group type="QStringList"/>
+      <Layer type="QStringList"/>
+    </WMTSLayers>
+    <WMSServiceTitle type="QString"></WMSServiceTitle>
+    <WMSContactMail type="QString"></WMSContactMail>
+    <WCSLayers type="QStringList"/>
+    <Gui>
+      <CanvasColorBluePart type="int">255</CanvasColorBluePart>
+      <SelectionColorBluePart type="int">0</SelectionColorBluePart>
+      <SelectionColorAlphaPart type="int">255</SelectionColorAlphaPart>
+      <SelectionColorRedPart type="int">255</SelectionColorRedPart>
+      <SelectionColorGreenPart type="int">255</SelectionColorGreenPart>
+      <CanvasColorRedPart type="int">255</CanvasColorRedPart>
+      <CanvasColorGreenPart type="int">255</CanvasColorGreenPart>
+    </Gui>
+    <WMSContactPerson type="QString"></WMSContactPerson>
+    <Measure>
+      <Ellipsoid type="QString">WGS84</Ellipsoid>
+    </Measure>
+    <WMSPrecision type="QString">8</WMSPrecision>
+    <WMSContactPhone type="QString"></WMSContactPhone>
+    <WMSOnlineResource type="QString"></WMSOnlineResource>
+    <WMSSegmentizeFeatureInfoGeometry type="bool">false</WMSSegmentizeFeatureInfoGeometry>
+    <Legend>
+      <filterByMap type="bool">false</filterByMap>
+    </Legend>
+    <WMTSUrl type="QString"></WMTSUrl>
+    <WFSUrl type="QString"></WFSUrl>
+    <WMSContactOrganization type="QString"></WMSContactOrganization>
+    <PAL>
+      <CandidatesLine type="int">50</CandidatesLine>
+      <ShowingCandidates type="bool">false</ShowingCandidates>
+      <ShowingPartialsLabels type="bool">true</ShowingPartialsLabels>
+      <ShowingAllLabels type="bool">false</ShowingAllLabels>
+      <SearchMethod type="int">0</SearchMethod>
+      <DrawRectOnly type="bool">false</DrawRectOnly>
+      <CandidatesPoint type="int">16</CandidatesPoint>
+      <CandidatesPolygon type="int">30</CandidatesPolygon>
+      <DrawOutlineLabels type="bool">true</DrawOutlineLabels>
+    </PAL>
+    <WMSFees type="QString">conditions unknown</WMSFees>
+    <WMTSMinScale type="int">5000</WMTSMinScale>
+    <WMSServiceCapabilities type="bool">true</WMSServiceCapabilities>
+  </properties>
+  <visibility-presets/>
+  <transformContext/>
+  <projectMetadata>
+    <identifier></identifier>
+    <parentidentifier></parentidentifier>
+    <language></language>
+    <type></type>
+    <title></title>
+    <abstract></abstract>
+    <contact>
+      <name></name>
+      <organization></organization>
+      <position></position>
+      <voice></voice>
+      <fax></fax>
+      <email></email>
+      <role></role>
+    </contact>
+    <links/>
+    <author>Radim Blazek</author>
+    <creation>2018-10-23T17:11:19</creation>
+  </projectMetadata>
+  <Annotations/>
+  <Layouts/>
+</qgis>

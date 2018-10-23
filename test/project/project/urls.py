@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from .ows import ows_server
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^wms/', ows_server),
 ]

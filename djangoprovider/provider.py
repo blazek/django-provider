@@ -38,7 +38,7 @@ class DjangoProvider(QgsVectorDataProvider):
 
     @classmethod
     def providerKey(cls):
-        return 'djangoprovider'
+        return 'django'
 
     @classmethod
     def description(cls):

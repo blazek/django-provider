@@ -7,6 +7,10 @@ from djangoprovider.provider import DjangoProvider
 def register_django_provider():
     registry = QgsProviderRegistry.instance()
 
+    if registry.providerMetadata(DjangoProvider.providerKey()):
+        # already registered
+        return
+
     metadata = QgsProviderMetadata(DjangoProvider.providerKey(), DjangoProvider.description(),
                                    DjangoProvider.createProvider)
 
