@@ -1,5 +1,6 @@
 # script to run manage.py with custom PYTHONPATH and LD_LIBRARY_PATH
 test/project/manage.sh
+test/project/scripts/test.sh
 
 # vim
 *.*~

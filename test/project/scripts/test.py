@@ -9,7 +9,6 @@ from PyQt5.QtCore import QSize
 from qgis.core import (
     QgsVectorLayer,
     QgsApplication,
-    QgsProviderRegistry, QgsProviderMetadata,
     QgsProject, QgsMapSettings, QgsMapRendererCustomPainterJob)
 
 from PyQt5.QtGui import *
@@ -32,14 +31,11 @@ if __name__ == '__main__':
     from djangoprovider import DjangoProvider, register_django_provider
     register_django_provider()
 
-    #print('providers: %s' % QgsProviderRegistry.instance().pluginList())
-
     from basic.models import *  # after django setup
 
     model = Point
     uri = '%s.%s' % (model._meta.app_label, model._meta.model_name)
     layer = QgsVectorLayer(uri, 'test', 'djangoprovider')
-    #layer = QgsVectorLayer('/home/radim/gdata/world/m110_admin_0_countries.shp', 'test', 'ogr')
     print('layer valid: %s' % layer.isValid())
     print('feature count: %s' % layer.featureCount())
     print('crs authid: %s' % layer.crs().authid())
@@ -69,4 +65,5 @@ if __name__ == '__main__':
     job.renderSynchronously()
     painter.end()
 
-    image.save('/tmp/image.png','png')
+    output_path = os.environ.get('QGIS_DJANGO_PROVIDER_TEST_OUTPUT', '/tmp/qgis-django-provider-test.png')
+    image.save(output_path,'png')

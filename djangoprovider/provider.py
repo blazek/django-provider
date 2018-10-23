@@ -33,6 +33,7 @@ wkb_types = {
     models.MultiPolygonField: QgsWkbTypes.MultiPolygon,
 }
 
+
 class DjangoProvider(QgsVectorDataProvider):
 
     @classmethod
@@ -195,8 +196,10 @@ class DjangoProvider(QgsVectorDataProvider):
         return self.providerKey()
 
     def extent(self):
+        # TODO
+        return QgsRectangle(-20037508.34, -20037508.34, 20037508.34, 20037508.34)
         if self._extent.isEmpty() and self._geo_field:
-            box = self._model.objects.get_queryset().aggregate(models.Extent(self._geo_field_name)).values()[0]
+            box = list(self._model.objects.get_queryset().aggregate(models.Extent(self._geo_field_name)).values())[0]
             self._extent = QgsRectangle(box[0], box[0], box[0], box[0])
 
         return QgsRectangle(self._extent)
