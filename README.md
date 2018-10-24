@@ -68,8 +68,7 @@ There is a small test Django project in test/project. You can run devel server a
  * Run ```manage.py generate_data```, it will generate few points in basic.point model.
  * Start devel server by ```manage.py runserver```
  
- Now the server should be running and it should be possible to access Django data through QGIS WMS server, for example:
+ Now the server should be running and it should be possible to access Django data through QGIS WMS server:
   
  * http://127.0.0.1:8000/wms/?SERVICE=WMS&REQUEST=GetCapabilities
- * 
  
