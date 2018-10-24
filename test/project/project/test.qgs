@@ -19,7 +19,7 @@
   </projectCrs>
   <layer-tree-group>
     <customproperties/>
-    <layer-tree-layer providerKey="djangoprovider" checked="Qt::Checked" id="point_edc31b89_b02f_40bb_9ba9_830a8aa345ab" source="basic.point" name="point" expanded="1">
+    <layer-tree-layer providerKey="django" checked="Qt::Checked" id="point_edc31b89_b02f_40bb_9ba9_830a8aa345ab" source="basic.point" name="point" expanded="1">
       <customproperties/>
     </layer-tree-layer>
     <custom-order enabled="0">
@@ -132,7 +132,7 @@
           </temporal>
         </extent>
       </resourceMetadata>
-      <provider encoding="UTF-8">djangoprovider</provider>
+      <provider encoding="UTF-8">django</provider>
       <vectorjoins/>
       <layerDependencies/>
       <dataDependencies/>

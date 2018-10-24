@@ -60,3 +60,16 @@ def ows_server(request):
     return HttpResponse(bytes(qgis_response.body()))
 ```
   
+## Local server test
+There is a small test Django project in test/project. You can run devel server and test QGIS server with Django data. 
+ 
+ * Ensure that all libs and Python modules are in path. Set LD_LIBRARY_PATH and PYTHONPATH if necessary.
+ * Go to test/project
+ * Run ```manage.py generate_data```, it will generate few points in basic.point model.
+ * Start devel server by ```manage.py runserver```
+ 
+ Now the server should be running and it should be possible to access Django data through QGIS WMS server, for example:
+  
+ * http://127.0.0.1:8000/wms/?SERVICE=WMS&REQUEST=GetCapabilities
+ * 
+ 
